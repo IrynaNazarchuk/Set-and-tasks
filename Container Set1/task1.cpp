@@ -3,22 +3,22 @@
 #include "Set.h" 
 
 int main() {
-    // Створюємо множини для кожної категорії символів
+    // Create tuples for each character category
     Set<char> digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
     Set<char> arithmeticOperators = { '+', '-', '*', '/' };
     Set<char> brackets = { '(', ')' };
 
-    // Заданий рядок з арифметичним виразом
+    // Given string with an arithmetic expression
     std::string expression = "(3 + 4) * (5 - 2)";
 
-    // Лічильники для кількості цифр, операцій та дужок
+    // Counters for the number of digits, operations, and parentheses
     int digitCount = 0;
     int operatorCount = 0;
     int bracketCount = 0;
 
-    // Проходимося по кожному символу у рядку
+    // Go through each character in the line
     for (char c : expression) {
-        // Перевіряємо, до якої категорії належить символ
+       // We check to which category the symbol belongs
         if (digits.contains(c)) {
             digitCount++;
         }
@@ -30,17 +30,17 @@ int main() {
         }
     }
 
-    // Виводимо результати
-    std::cout << "Кількість цифр: " << digitCount << std::endl;
-    std::cout << "Кількість арифметичних операцій: " << operatorCount << std::endl;
-    std::cout << "Кількість дужок: " << bracketCount << std::endl;
+     // Р’РёРІРѕРґРёРјРѕ СЂРµР·СѓР»СЊС‚Р°С‚Рё
+    std::cout << "Number of digits:: " << digitCount << std::endl;
+    std::cout << "Number of arithmetic operations: " << operatorCount << std::endl;
+    std::cout << "Number of brackets: " << bracketCount << std::endl;
 
-    // Перевіряємо, чи відповідає кількість дужок
+    // Check if the number of brackets matches
     if (bracketCount % 2 == 0) {
-        std::cout << "Кількість дужок у виразі відповідає." << std::endl;
+        std::cout << "The number of parentheses in the expression corresponds." << std::endl;
     }
     else {
-        std::cout << "Кількість дужок у виразі не відповідає." << std::endl;
+        std::cout << "The number of parentheses in the expression does not match." << std::endl;
     }
 
     return 0;
