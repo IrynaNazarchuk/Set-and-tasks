@@ -4,22 +4,23 @@
 
 using namespace std;
 int main() {
-    // Створюємо екземпляр класу Set для імен.
+ // Create an instance of the Set class for names.
     Set<string> names = { "Olexa", "Yuliia", "Kateryna", "Vitalii", "Artemii", "Markiian", "Vladyslav", "Oleg", "Kseniia", "Olha", "Sofia", "Andrii", "Ivan", "Yurii", "Taras", "Kostiantyn", "Halyna", "Vasyl", "Solomiia", "Mykola", "Iryna" };
 
-    // Створюємо екземпляр класу Set для гостей.
+// Create an instance of the Set class for guests.
     Set<string> guests = { "Olexa",  "Olha", "Sofia" };
 
-    // Створюємо пустий масив для відвідувань.
+   // Create an empty array for visits.
     Set<pair<string, string>> visits;
 
-    // Додамо відвідування.
+
+// Add a visit.
     for (int i = 0; i < names.getSize(); ++i) {
         for (int j = 0; j < guests.getSize(); ++j) {
             const string& name = names[i];
             const string& guest = guests[j];
-            if (name != guest) { // Виключаємо відвідування самого себе.
-                // Генеруємо унікальні пари імен для відвідувань.
+            if (name != guest) { // We exclude visiting itself.
+                // Generate unique pairs of names for visits.
                 bool exists = false;
                 for (int k = 0; k < visits.getSize(); ++k) {
                     if (visits[k].first == name && visits[k].second == guest) {
@@ -34,9 +35,9 @@ int main() {
         }
     }
 
-    // Завдання 1: Хто з перелічених осіб (імен) найменше ходить в гості.
+    // Task 1: Which of the listed persons (names) visits the least
     Set<string> leastVisitors;
-    size_t minVisits = guests.getSize(); // Ініціалізуємо мінімальну кількість відвідувань максимальною можливою.
+    size_t minVisits = guests.getSize(); // Initialize the minimum number of visits to the maximum possible.
     for (int i = 0; i < names.getSize(); ++i) {
         size_t numVisits = 0;
         const string& name = names[i];
@@ -54,13 +55,13 @@ int main() {
             leastVisitors.add(name);
         }
     }
-    cout << "1. Найменше ходять в гості: ";
+    cout << "1. They visit the least: ";
     for (int i = 0; i < leastVisitors.getSize(); ++i) {
         cout << leastVisitors[i] << " ";
     }
     cout << endl;
 
-    // Завдання 2: Хто відвідав усіх друзів.
+    // Task 2: Who visited all friends.
     Set<string> allVisited;
     for (int i = 0; i < names.getSize(); ++i) {
         const string& name = names[i];
@@ -76,14 +77,14 @@ int main() {
             allVisited.add(name);
         }
     }
-    cout << "2. Відвідав усіх друзів: ";
+    cout << "2.Visited all friends: ";
     for (int i = 0; i < allVisited.getSize(); ++i) {
         cout << allVisited[i] << " ";
     }
     cout << endl;
 
-    // Завдання 3: Чи є серед перелічених осіб "тісне коло трьох друзів".
-    // Тобто, такі, які бували в гостях один в одного і ні в кого більше.
+   // Task 3: Is there a "close circle of three friends" among the listed persons.
+    // That is, those who visited each other and no one else.
     bool tightCircleOfThree = false;
     for (int i = 0; i < names.getSize(); ++i) {
         const string& name1 = names[i];
@@ -96,20 +97,20 @@ int main() {
                 if (visits.contains({ name1, name2 }) && visits.contains({ name1, name3 }) &&
                     visits.contains({ name2, name1 }) && visits.contains({ name2, name3 }) &&
                     visits.contains({ name3, name1 }) && visits.contains({ name3, name2 })) {
-                    cout << "3. Є тісне коло трьох друзів: " << name1 << ", " << name2 << ", " << name3 << endl;
+                    cout << "3. There is a close circle of three friends: " << name1 << ", " << name2 << ", " << name3 << endl;
                     tightCircleOfThree = true;
                 }
             }
         }
     }
     if (!tightCircleOfThree) {
-        cout << "3. Тісних кол не знайдено." << endl;
+        cout << "3.No tight circles found." << endl;
     }
 
-    // Завдання 4: Побудуйте таблицю відвідувань.
-    cout << "4. Таблиця відвідувань:" << endl;
+    // Task 4: Build the visits table.
+    cout << "4. Table of visits:" << endl;
     for (int i = 0; i < visits.getSize(); ++i) {
-        cout << visits[i].first << " відвідав(ла) " << visits[i].second << endl;
+        cout << visits[i].first << " visited " << visits[i].second << endl;
     }
 
     return 0;
