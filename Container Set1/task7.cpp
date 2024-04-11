@@ -4,30 +4,30 @@
 
 template<typename T>
 bool canReachWithTwoTransfers(const Set<T>& cities, const Set<std::pair<T, T>>& flights, const T& start, const T& destination) {
-    // Перевірка чи стартове та призначення міста є в множинах міст
+   // Check if the starting and destination cities are multiple cities
     if (!cities.contains(start) || !cities.contains(destination))
         return false;
 
-    // Створюємо множини для відвіданих та поточних міст
+  // Create tuples for visited and current cities
     Set<T> visited;
     Set<T> currentLevel;
     Set<T> nextLevel;
 
-    // Додаємо стартове місто до поточного рівня
+   // Р”РѕРґР°С”РјРѕ СЃС‚Р°СЂС‚РѕРІРµ РјС–СЃС‚Рѕ РґРѕ РїРѕС‚РѕС‡РЅРѕРіРѕ СЂС–РІРЅСЏ
     currentLevel.add(start);
     visited.add(start);
 
-    int transfers = 0; // кількість пересадок
+    int transfers = 0;  // number of transfers
 
-    // Початок BFS
+// Start BFS
     while (currentLevel.getSize()) {
-        // Обхід поточного рівня
+       // Bypass the current level
         for (size_t i = 0; i < currentLevel.getSize(); ++i) {
             const T& currentCity = currentLevel[i];
-            if (currentCity == destination) // Якщо поточне місто - місто призначення, повертаємо true
+            if (currentCity == destination) // If the current city is the destination city, return true
                 return true;
 
-            // Додаємо до наступного рівня всі міста, до яких можна потрапити за допомогою прямих переїздів або з однією пересадкою
+          // We add to the next level all the cities that can be reached by direct transfers or with one transfer
             for (size_t j = 0; j < flights.getSize(); ++j) {
                 if (flights[j].first == currentCity && !visited.contains(flights[j].second)) {
                     nextLevel.add(flights[j].second);
@@ -40,34 +40,34 @@ bool canReachWithTwoTransfers(const Set<T>& cities, const Set<std::pair<T, T>>& 
             }
         }
 
-        // Переходимо до наступного рівня
+       // Go to the next level
         currentLevel = nextLevel;
         nextLevel.clear();
 
-        // Збільшуємо кількість пересадок
+        // Increase the number of transfers
         ++transfers;
 
-        // Якщо зроблено більше ніж 2 пересадки, виходимо з циклу
+        // If more than 2 transfers are made, we exit the loop
         if (transfers > 2)
             break;
     }
 
-    // Якщо не було знайдено шляху за допомогою прямих переїздів або з однією пересадкою, повертаємо false
+    // If no path was found using direct crossings or with one stop, return false
     return false;
 }
 
 
 int main() {
-    Set<std::string> cities = { "Київ", "Львів", "Харків", "Дніпро", "Одеса", "Тернопіль", "Ужгород", "Луцьк", "Рівне", "Івано-Франківськ", "Житомир", "Суми", "Донецьк", "Луганськ", "Запоріжжя", "Сімферополь", "Чернівці", "Хмельницький", "Вінниця", "Черкаси", "Полтава", "Чернігів", "Кропивницький", "Миколаїв", "Херсон" };
-    Set<std::pair<std::string, std::string>> flights = { {"Київ", "Львів"}, {"Київ", "Харків"}, {"Львів", "Дніпро"}, {"Львів", "Харків"}, {"Львів", "Одеса"}, {"Дніпро", "Одеса"}, {"Харків", "Донецьк"}, {"Одеса", "Харків"}, {"Донецьк", "Луганськ"}, {"Донецьк", "Харків"}, {"Луганськ", "Харків"}, {"Луганськ", "Донецьк"}, {"Харків", "Київ"}, {"Харків", "Одеса"}, {"Харків", "Дніпро"} };
+    Set<std::string> cities = { "Kyiv", "Lviv", "Kharkiv", "Dnipro", "Odesa", "Ternopil", "Uzhgorod", "Lutsk", "Rivne", "Ivano-Frankivsk", "Zhytomyr", "Sumy", "Donetsk", "Luhansk", "Zaporizhzhia", "Simferopol", "Chernivtsi", "Khmelnytskyi", "Vinnytsia", "Cherkasy", "Poltava", "Chernihiv", "Kropyvnytskyi", "Mykolaiv", "Kherson" };
+    Set<std::pair<std::string, std::string>> flights = { {"Kyiv", "Lviv"}, {"Kyiv", "Kharkiv"}, {"Lviv", "Dnipro"}, {"Lviv", "Kharkiv"}, {"Lviv", "Odessa"}, {"Dnipro", "Odessa"}, {"Kharkiv", "Donetsk"}, {"Odessa", "Kharkiv"}, {"Donetsk", "Luhansk"}, {"Donetsk", "Kharkiv"}, {"Luhansk", "Kharkiv"}, {"Luhansk", "Donetsk"}, {"Kharkiv", "Kyiv"}, {"Kharkiv", "Odesa"}, {"Kharkiv", "Dnipro"} };
 
-    std::string startCity = "Київ";
-    std::string destinationCity = "Дніпро";
+    std::string startCity = "Kyiv";
+    std::string destinationCity = "Dnipro";
 
     if (canReachWithTwoTransfers(cities, flights, startCity, destinationCity))
-        std::cout << "Можливо потрапити з " << startCity << " до " << destinationCity << " з двома або менше пересадками.\n";
+        std::cout << "It is possible to get from " << startCity << " to with two or fewer transplants." << destinationCity << " \n";
     else
-        std::cout << "Неможливо потрапити з " << startCity << " до " << destinationCity << " з двома або менше пересадками.\n";
+        std::cout << "It is impossible to get from" << startCity << " to " << destinationCity << "with two or fewer transplants.\n";
 
     return 0;
 }
