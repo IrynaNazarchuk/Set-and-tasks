@@ -2,21 +2,21 @@
 #include "Set.h" 
 
 void SieveOfEratosthenes(int n) {
-    Set<int> primes(n + 1); // Створюємо множину для збереження простих чисел
+    Set<int> primes(n + 1);  // Create a set to store prime numbers
     for (int i = 2; i <= n; ++i) {
-        primes.add(i); // Додаємо всі числа від 2 до n
+        primes.add(i); // Add all numbers from 2 to n
     }
 
     for (int p = 2; p <= n; p++) {
         if (primes.contains(p)) {
-            // Позначаємо всі кратні числа як "не прості"
+           // Mark all multiples as "not prime"
             for (int i = p * 2; i <= n; i += p) {
                 primes.remove(i);
             }
         }
     }
 
-    // Виводимо прості числа
+   // Output prime numbers
     std::cout << "Prime numbers less than or equal to " << n << ":\n";
     for (size_t i = 0; i < primes.getSize(); ++i) {
         std::cout << primes[i] << " ";
@@ -25,7 +25,7 @@ void SieveOfEratosthenes(int n) {
 }
 
 int main() {
-    int n = 100; // Задане число n
+    int n = 100; // Given number n
     SieveOfEratosthenes(n);
     return 0;
 }
