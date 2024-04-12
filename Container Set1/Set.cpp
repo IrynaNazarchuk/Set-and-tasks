@@ -1,4 +1,4 @@
-#include "Set.h"
+#include "Set.h"                            //the work of Iryna Nazarchuk and Galina Danylchyk
 
 // Constructor of the Set class with the default parameter initialCapacity
 template<typename T>
