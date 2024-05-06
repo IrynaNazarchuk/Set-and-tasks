@@ -1,6 +1,7 @@
 #include "Set.h"
 #include <iostream>
 
+//Halyna Danylchyk
 // Function to calculate the number of different digits in a number
 int digits(int n) {
     Set<int> digitSet; // Create an instance of the Set class to store different numbers
