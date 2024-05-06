@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Set.h" 
 
+//Iryna Nazarchuk
 enum class Product { Bread, Butter, Milk, Cheese, Meat, Fish, Salt, Sugar, Tea, Water };
 void print(int a) {
     switch (a)
