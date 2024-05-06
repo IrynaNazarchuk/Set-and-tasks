@@ -1,11 +1,13 @@
-#include "Set.h"                            //the work of Iryna Nazarchuk and Galina Danylchyk
+#include "Set.h"                            //the work of Iryna Nazarchuk and Halyna Danylchyk
 
+//Halyna Danylchyk
 // Constructor of the Set class with the default parameter initialCapacity
 template<typename T>
 Set<T>::Set(size_t initialCapacity) : capacity(initialCapacity), size(0) {
     elements = new T[capacity];
 }
 
+//Iryna Nazarchuk
 // Constructor of the Set class with an initialization list
 template<typename T>
 Set<T>::Set(std::initializer_list<T> initList) : Set(initList.size()) {
@@ -14,6 +16,7 @@ Set<T>::Set(std::initializer_list<T> initList) : Set(initList.size()) {
     }
 }
 
+//Halyna Danylchyk
 // Copy constructor of the Set class
 template<typename T>
 Set<T>::Set(const Set& other) : Set(other.capacity) {
@@ -23,12 +26,14 @@ Set<T>::Set(const Set& other) : Set(other.capacity) {
     }
 }
 
+//Halyna Danylchyk
 // Destructor of the Set class
 template<typename T>
 Set<T>::~Set() {
     delete[] elements;
 }
 
+//Iryna Nazarchuk
 // Assignment operator of the Set class
 template<typename T>
 Set<T>& Set<T>::operator=(const Set& other) {
@@ -44,6 +49,7 @@ Set<T>& Set<T>::operator=(const Set& other) {
     return *this;
 }
 
+//Iryna Nazarchuk
 // Adding an element to the set
 template<typename T>
 void Set<T>::add(const T& element) {
@@ -55,6 +61,7 @@ void Set<T>::add(const T& element) {
     }
 }
 
+//Iryna Nazarchuk
 // Adding all elements from another set
 template<typename T>
 void Set<T>::add(const Set& other) {
@@ -63,6 +70,7 @@ void Set<T>::add(const Set& other) {
     }
 }
 
+//Halyna Danylchyk
 // Checking whether an element is contained in a set
 template<typename T>
 bool Set<T>::contains(const T& element) const {
@@ -74,6 +82,7 @@ bool Set<T>::contains(const T& element) const {
     return false;
 }
 
+//Halyna Danylchyk
 // Remove an element from the set
 template<typename T>
 void Set<T>::remove(const T& element) {
@@ -88,18 +97,21 @@ void Set<T>::remove(const T& element) {
     }
 }
 
+//Halyna Danylchyk
 // Clear the set (remove all elements)
 template<typename T>
 void Set<T>::clear() {
     size = 0;
 }
 
+//Iryna Nazarchuk
 // Get the size of the set
 template<typename T>
 size_t Set<T>::getSize() const {
     return size;
 }
 
+//Iryna Nazarchuk
 // Combination of sets
 template<typename T>
 Set<T> Set<T>::unionWith(const Set& other) const {
@@ -108,6 +120,7 @@ Set<T> Set<T>::unionWith(const Set& other) const {
     return result;
 }
 
+//Halyna Danylchyk
 // Intersection of sets
 template<typename T>
 Set<T> Set<T>::intersectionWith(const Set& other) const {
@@ -120,6 +133,7 @@ Set<T> Set<T>::intersectionWith(const Set& other) const {
     return result;
 }
 
+//Halyna Danylchyk
 // Difference of sets
 template<typename T>
 Set<T> Set<T>::differenceWith(const Set& other) const {
@@ -130,6 +144,7 @@ Set<T> Set<T>::differenceWith(const Set& other) const {
     return result;
 }
 
+//Iryna Nazarchuk
 // Overloaded comparison operator ==
 template<typename T>
 template<typename U>
@@ -144,6 +159,7 @@ bool Set<T>::operator==(const Set<U>& rhs) const {
     return true;
 }
 
+//Iryna Nazarchuk
 // Overloaded output operator <<
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const Set<T>& set) {
@@ -155,6 +171,7 @@ std::ostream& operator<<(std::ostream& os, const Set<T>& set) {
     return os;
 }
 
+//Iryna Nazarchuk
 // Increase the size of the element array
 template<typename T>
 void Set<T>::resize() {
@@ -167,6 +184,7 @@ void Set<T>::resize() {
     elements = newElements;
 }
 
+//Halyna Danylchyk
 // Overloaded element access operator
 template<typename T>
 T& Set<T>::operator[](size_t index) {
@@ -176,6 +194,7 @@ T& Set<T>::operator[](size_t index) {
     return elements[index];
 }
 
+//Halyna Danylchyk
 // Overloaded constant element access operator
 template<typename T>
 const T& Set<T>::operator[](size_t index) const {
