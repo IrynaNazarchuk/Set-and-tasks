@@ -2,6 +2,7 @@
 #include <string>
 #include "Set.h" 
 
+//Iryna Nazarchuk
 int main() {
     // Create tuples for each character category
     Set<char> digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
