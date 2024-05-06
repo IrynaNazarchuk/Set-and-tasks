@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 
+//Halyna Danylchyk
 template<typename T>
 bool canReachWithTwoTransfers(const Set<T>& cities, const Set<std::pair<T, T>>& flights, const T& start, const T& destination) {
    // Check if the starting and destination cities are multiple cities
@@ -19,6 +20,7 @@ bool canReachWithTwoTransfers(const Set<T>& cities, const Set<std::pair<T, T>>& 
 
     int transfers = 0;  // number of transfers
 
+//Iryna Nazarchuk
 // Start BFS
     while (currentLevel.getSize()) {
        // Bypass the current level
@@ -39,7 +41,8 @@ bool canReachWithTwoTransfers(const Set<T>& cities, const Set<std::pair<T, T>>& 
                 }
             }
         }
-
+       
+//Halyna Danylchyk
        // Go to the next level
         currentLevel = nextLevel;
         nextLevel.clear();
@@ -56,7 +59,7 @@ bool canReachWithTwoTransfers(const Set<T>& cities, const Set<std::pair<T, T>>& 
     return false;
 }
 
-
+//Iryna Nazarchuk
 int main() {
     Set<std::string> cities = { "Kyiv", "Lviv", "Kharkiv", "Dnipro", "Odesa", "Ternopil", "Uzhgorod", "Lutsk", "Rivne", "Ivano-Frankivsk", "Zhytomyr", "Sumy", "Donetsk", "Luhansk", "Zaporizhzhia", "Simferopol", "Chernivtsi", "Khmelnytskyi", "Vinnytsia", "Cherkasy", "Poltava", "Chernihiv", "Kropyvnytskyi", "Mykolaiv", "Kherson" };
     Set<std::pair<std::string, std::string>> flights = { {"Kyiv", "Lviv"}, {"Kyiv", "Kharkiv"}, {"Lviv", "Dnipro"}, {"Lviv", "Kharkiv"}, {"Lviv", "Odessa"}, {"Dnipro", "Odessa"}, {"Kharkiv", "Donetsk"}, {"Odessa", "Kharkiv"}, {"Donetsk", "Luhansk"}, {"Donetsk", "Kharkiv"}, {"Luhansk", "Kharkiv"}, {"Luhansk", "Donetsk"}, {"Kharkiv", "Kyiv"}, {"Kharkiv", "Odesa"}, {"Kharkiv", "Dnipro"} };
