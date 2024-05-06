@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-//Halyna Danylchyk
+//Halyna Danylchyk'
 template<typename T>
 bool canReachWithTwoTransfers(const Set<T>& cities, const Set<std::pair<T, T>>& flights, const T& start, const T& destination) {
    // Check if the starting and destination cities are multiple cities
