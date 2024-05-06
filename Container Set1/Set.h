@@ -2,6 +2,7 @@
 #include <iostream>
 #include <initializer_list>
 
+//Iryna Nazarchuk
 template<typename T>
 class Set {
 private:
@@ -10,7 +11,7 @@ private:
     size_t size;         // Current set size (number of elements added)
 
     void resize();       // Method to resize an array of elements
-
+//Halyna Danylchyk
 public:
     Set(size_t initialCapacity = 10);   // A constructor with a default parameter to create a set with an initial capacity
     Set(std::initializer_list<T> initList);  // A constructor that accepts an initialization list to create a set with the specified elements
@@ -19,11 +20,13 @@ public:
 
     Set& operator=(const Set& other);        // Assignment operator
 
+//Iryna Nazarchuk
     void add(const T& element);              // Adding an element to the set
     void add(const Set& other);              // Adding all elements from another set
     bool contains(const T& element) const;   // Checking whether an element is contained in a set
     void remove(const T& element);           // Remove an element from the set
     void clear();                            // Clear the set (remove all elements)
+//Halyna Danylchyk
     size_t getSize() const;                  // Get the current size of the set
     Set unionWith(const Set& other) const;   // Combination of sets
     Set intersectionWith(const Set& other) const;   // Intersection of sets
@@ -32,6 +35,7 @@ public:
     template<typename U>
     bool operator==(const Set<U>& rhs) const;         // Overloaded comparison operator
 
+//Iryna Nazarchuk
     template<typename U>
     friend std::ostream& operator<<(std::ostream& os, const Set<U>& set);    // Overloaded output operator
 
