@@ -2,6 +2,7 @@
 #include <string>
 #include "Set.h"
 
+//Iryna Nazarchuk
 int main() {
     std::string str = "abracadabra";
 
