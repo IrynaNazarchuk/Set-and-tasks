@@ -15,7 +15,7 @@ TEST(SetTest, AddAndContains) {
     EXPECT_FALSE(set.contains(4));
 }
 
-//Halyna Danylchyk
+//Halyna Danylchyk'
 TEST(SetTest, Remove) {
     Set<int> set = { 1, 2, 3 };
     set.remove(2);
