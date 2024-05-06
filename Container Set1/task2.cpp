@@ -6,14 +6,14 @@
 int digits(int n) {
     Set<int> digitSet; // Create an instance of the Set class to store different numbers
 
-  // We go through each digit of the number n
+  // We go through each digit of the number n;
     while (n > 0) {
         int digit = n % 10; // Get the last digit of the number
         digitSet.add(digit); // Add a number to the set
         n /= 10; // Delete the last digit of the number
     }
 
-  // Return the number of elements in the set (the number of different digits)
+  // Return the number of elements in the set (the number of different digits);
     return digitSet.getSize();
 }
 
