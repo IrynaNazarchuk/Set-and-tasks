@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 
+//Halyna Danylchyk
 using namespace std;
 int main() {
  // Create an instance of the Set class for names.
