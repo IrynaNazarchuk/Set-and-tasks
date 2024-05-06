@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Set.h" 
 
-//Halyna Danylchyk
+//Halyna Danylchyk'
 void SieveOfEratosthenes(int n) {
     Set<int> primes(n + 1);  // Create a set to store prime numbers
     for (int i = 2; i <= n; ++i) {
