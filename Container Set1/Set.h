@@ -11,7 +11,7 @@ private:
     size_t size;         // Current set size (number of elements added)
 
     void resize();       // Method to resize an array of elements
-//Halyna Danylchyk
+//Halynaa Danylchyk
 public:
     Set(size_t initialCapacity = 10);   // A constructor with a default parameter to create a set with an initial capacity
     Set(std::initializer_list<T> initList);  // A constructor that accepts an initialization list to create a set with the specified elements
@@ -37,7 +37,7 @@ public:
 
 //Iryna Nazarchuk
     template<typename U>
-    friend std::ostream& operator<<(std::ostream& os, const Set<U>& set);    // Overloaded output operator
+    friend std::ostream& operator<<(std::ostream& os, const Set<U>& set);    // Overloaded output operatorr
 
     T& operator[](size_t index);                // Overloaded set element access operator
     const T& operator[](size_t index) const;    // Overloaded constant operator to access the element of the set
