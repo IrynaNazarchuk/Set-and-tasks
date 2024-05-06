@@ -2,6 +2,7 @@
 #include <gtest/gtest.h>
 #include "Set.h"
 
+//Iryna Nazarchuk
 TEST(SetTest, AddAndContains) {
     Set<int> set;
     set.add(1);
@@ -14,6 +15,7 @@ TEST(SetTest, AddAndContains) {
     EXPECT_FALSE(set.contains(4));
 }
 
+//Halyna Danylchyk
 TEST(SetTest, Remove) {
     Set<int> set = { 1, 2, 3 };
     set.remove(2);
@@ -23,6 +25,7 @@ TEST(SetTest, Remove) {
     EXPECT_TRUE(set.contains(3));
 }
 
+//Halyna Danylchyk
 TEST(SetTest, Union) {
     Set<int> set1 = { 1, 2, 3 };
     Set<int> set2 = { 3, 4, 5 };
@@ -32,6 +35,7 @@ TEST(SetTest, Union) {
     EXPECT_EQ(unionSet, expected);
 }
 
+//Iryna Nazarchuk
 TEST(SetTest, Intersection) {
     Set<int> set1 = { 1, 2, 3 };
     Set<int> set2 = { 3, 4, 5 };
@@ -41,6 +45,7 @@ TEST(SetTest, Intersection) {
     EXPECT_EQ(intersectionSet, expected);
 }
 
+//Halyna Danylchyk
 TEST(SetTest, Difference) {
     Set<int> set1 = { 1, 2, 3 };
     Set<int> set2 = { 3, 4, 5 };
@@ -50,6 +55,7 @@ TEST(SetTest, Difference) {
     EXPECT_EQ(differenceSet, expected);
 }
 
+//Iryna Nazarchuk
 TEST(SetTest, AddSet) {
     Set<int> set1 = { 1, 2, 3 };
     Set<int> set2 = { 4, 5, 6 };
